@@ -8,6 +8,7 @@ DOCS_URL = 'https://playwright.dev/python/docs/intro'
 @pytest.fixture
 def playwrigt_page(page: Page):
     page.goto("https://playwright.dev/python/")
+    page.screenshot(path='playwright.png')
     return page
 
 def test_page_has_get_docs_link(playwrigt_page: Page):
@@ -20,12 +21,12 @@ def test_page_has_get_started_visits_docs(playwrigt_page: Page):
 
     link = playwrigt_page.locator('.getStarted_Sjon') 
     link.click()
-    
+    playwrigt_page.screenshot(path='docs.jpg', full_page=True) #full scrollable page
+
     assert playwrigt_page.url == DOCS_URL
 
 
-
-@pytest.fixture(autouse=True, scope='function') #implicitly sets the scope to function
+@pytest.fixture(autouse=True, scope='function') #implicitly sets the scope to function, we don't need to use the visit_playwright function as a parameter, it wil lbe automatically used in the below tests
 def visit_playwright(page: Page):
     page.goto("https://playwright.dev/python/")
     yield page
@@ -39,5 +40,7 @@ def test_page_has_get_docs_link_hook(page: Page):
 
 def test_page_has_get_started_visits_docs_hook(page: Page):
     link = page.locator('.getStarted_Sjon') 
+    link.screenshot(path='getStarted.jpg') #take screenshot of specific locator
     link.click()
+    
     assert page.url == DOCS_URL

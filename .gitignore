@@ -1,3 +1,5 @@
 /venv
+/videos
 credentials.json
 __pycache__
+trace.zip
