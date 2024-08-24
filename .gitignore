@@ -1,5 +1,11 @@
+#folders
 /venv
 /videos
+/__pycache__
+
+#files
 credentials.json
-__pycache__
 trace.zip
+
+#all pictures
+*.jpg
