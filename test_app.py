@@ -44,3 +44,7 @@ def test_page_has_get_started_visits_docs_hook(page: Page):
     link.click()
     
     assert page.url == DOCS_URL
+
+def test_scroll_to_botton_using_JS_exec(page: Page):
+    page.evaluate('window.scrollBy(0, document.body.scrollHeight)')
+    page.screenshot(path='end.jpg')
