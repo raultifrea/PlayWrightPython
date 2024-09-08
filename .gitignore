@@ -6,6 +6,7 @@
 #files
 credentials.json
 trace.zip
+*.pyc
 
 #all pictures
 *.jpg

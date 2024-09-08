@@ -1,5 +1,5 @@
 from tests.credentials import *
-from playwright.sync_api import APIRequestContext, Page
+from playwright.sync_api import APIRequestContext, Browser
 
 def test_create_issue(api_context: APIRequestContext):
     issue_data = {
@@ -13,7 +13,8 @@ def test_create_issue(api_context: APIRequestContext):
     )
     assert post_response.ok
 
-def test_take_screenshot_issues(page: Page):
+def test_take_screenshot_issues(browser: Browser):
+    page = browser.new_page(color_scheme='dark')
     page.goto(f'https://github.com/{GITHUB_USER}/{GITHUB_REPO}/issues')
     page.screenshot(path='issues.jpg', full_page=True)
 
