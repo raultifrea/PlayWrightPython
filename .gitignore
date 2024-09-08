@@ -6,6 +6,7 @@
 #files
 credentials.json
 trace.zip
+/tests/credentials.py
 
 #all pictures
 *.jpg
