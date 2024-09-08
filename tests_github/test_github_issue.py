@@ -1,4 +1,4 @@
-from tests.credentials import *
+from tests_github.credentials import *
 from playwright.sync_api import APIRequestContext, Browser
 
 def test_create_issue(api_context: APIRequestContext):

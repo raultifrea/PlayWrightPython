@@ -1,6 +1,6 @@
 import pytest
 from playwright.sync_api import Playwright, APIRequestContext
-from tests.credentials import *
+from tests_github.credentials import *
 
 @pytest.fixture(scope='session')
 def api_context(playwright: Playwright):
