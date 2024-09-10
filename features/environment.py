@@ -3,7 +3,7 @@ from playwright.sync_api import sync_playwright
 def before_scenario(context, _): #scenario can be the second param for CLI execution satisfaction
     context.playwright = sync_playwright().start()
     context.browser = context.playwright.chromium.launch(
-        headless=False, slow_mo=500
+        headless=True, slow_mo=500
     )
     context.page = context.browser.new_page()
 

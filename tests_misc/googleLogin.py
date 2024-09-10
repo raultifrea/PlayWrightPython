@@ -8,7 +8,7 @@ with open(json_file_path, 'r') as file:
     data = json.load(file)
 
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=False, slow_mo=1000, args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
+    browser = playwright.chromium.launch(headless=True, slow_mo=1000, args=["--disable-dev-shm-usage", "--disable-blink-features=AutomationControlled"],
     ignore_default_args=['--disable-component-extensions-with-background-pages'])
 
     context = browser.new_context(storage_state=storage_path)

@@ -11,7 +11,7 @@ def on_filechooser(file_chooser):
     file_chooser.set_files("file.txt")
 
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=False)
+    browser = playwright.chromium.launch(headless=True)
     page = browser.new_page()
 
     page.on('load', on_load) #prints the document
@@ -31,7 +31,7 @@ def on_dialog(dialog):
     # dialog.dismiss()
     
 with sync_playwright() as playwright:
-    browser = playwright.chromium.launch(headless=False, slow_mo=1000)
+    browser = playwright.chromium.launch(headless=True, slow_mo=1000)
     page = browser.new_page()
 
     page.goto('https://testpages.eviltester.com/styled/alerts/alert-test.html')

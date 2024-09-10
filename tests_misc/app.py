@@ -3,7 +3,7 @@ from time import perf_counter
 
 with sync_playwright() as playwright:
     # Launch a browser
-    browser = playwright.chromium.launch(headless=False, slow_mo=500)
+    browser = playwright.chromium.launch(headless=True, slow_mo=500)
     # Create a new page
     page = browser.new_page()
     print("Page loading...")
